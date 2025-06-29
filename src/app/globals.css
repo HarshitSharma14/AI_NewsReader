@@ -1,11 +1,8 @@
 /* src/app/globals.css */
 
-/* Tailwind CSS directives - DO NOT IMPORT, just use @ */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* shadcn/ui CSS Custom Properties for themin */
+/* shadcn/ui CSS Custom Properties for theming */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -56,11 +53,12 @@
 /* Base styles - applies to all elements */
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
@@ -99,7 +97,7 @@
 
   /* Smooth fade in animation */
   .fade-in {
-    @apply animate-fade-in;
+    @apply animate-[fade-in_0.5s_ease-out];
   }
 
   /* Glass morphism effect */
@@ -121,6 +119,28 @@
     text-wrap: balance;
   }
 
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
   /* Hide scrollbar but keep functionality */
   .scrollbar-hide {
     -ms-overflow-style: none;
@@ -139,6 +159,49 @@
   /* Smooth transitions */
   .transition-smooth {
     @apply transition-all duration-300 ease-in-out;
+  }
+}
+
+/* Custom animations for Tailwind v4 */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
   }
 }
 
@@ -199,7 +262,7 @@ html.dark {
   }
 }
 
-/* Reduced motion for accessibility */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
 
   *,

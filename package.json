@@ -2,17 +2,16 @@
   "name": "ai-news-dashboard",
   "version": "0.1.0",
   "private": true,
-    "scripts": {
-      "dev": "next dev",
-      "build": "next build",
-      "start": "next start",
-      "lint": "next lint",
-      "lint:fix": "next lint --fix",
-      "type-check": "tsc --noEmit",
-      "clean": "rm -rf .next",
-      "postinstall": "npm run type-check"
-    },
-  
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rmdir /s /q .next || echo \"Directory already clean\"",
+    "postinstall": "npm run type-check"
+  },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
@@ -26,7 +25,7 @@
     "date-fns": "^4.1.0",
     "dotenv": "^17.0.0",
     "lucide-react": "^0.525.0",
-    "next": "15.3.4",
+    "next": "^15.3.4",
     "next-themes": "^0.4.6",
     "openai": "^5.8.2",
     "react": "^19.0.0",
@@ -38,15 +37,15 @@
     "zustand": "^5.0.6"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20.19.2",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/node": "^24.0.7",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9",
-    "eslint-config-next": "15.3.4",
-    "tailwindcss": "^4",
-    "tw-animate-css": "^1.3.4",
-    "typescript": "^5"
+    "eslint-config-next": "^15.3.4",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3"
   }
 }
