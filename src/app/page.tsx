@@ -33,6 +33,10 @@ export default function HomePage() {
         </p>
       </div>
 
+      <div className="bg-red-500 text-white p-4 rounded-lg">
+        Tailwind is working!
+      </div>
+
       {error && (
         <div className="mb-6 p-4 border border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950 rounded-lg">
           <p className="text-red-800 dark:text-red-200">

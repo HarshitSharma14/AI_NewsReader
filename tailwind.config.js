@@ -1,11 +1,13 @@
+// tailwind.config.js (for v3)
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
     content: [
         './pages/**/*.{js,ts,jsx,tsx,mdx}',
         './components/**/*.{js,ts,jsx,tsx,mdx}',
         './app/**/*.{js,ts,jsx,tsx,mdx}',
         './src/**/*.{js,ts,jsx,tsx,mdx}',
     ],
+    darkMode: ["class"],
     theme: {
         container: {
             center: true,
@@ -81,4 +83,5 @@ export default {
             },
         },
     },
-} 
+    plugins: [],
+}
